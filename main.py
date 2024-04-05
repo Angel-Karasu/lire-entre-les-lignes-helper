@@ -35,9 +35,11 @@ def try_possibilities():
         try: words_dict[len(word)].append(word)
         except: pass
 
-    possibilities = [words_dict.values()[0]]
+    possibilities = list(words_dict.values())[0]
 
-    for words in words_dict.values()[1:]:
+    
+
+    for words in list(words_dict.values())[1:]:
         possibilities = [string + ' ' + word for string, word in product(possibilities, words) if check_string(string + word)]
 
     return possibilities
