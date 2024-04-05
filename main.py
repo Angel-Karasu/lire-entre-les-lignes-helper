@@ -29,7 +29,7 @@ DICTIONARY = init_dictionary('https://raw.githubusercontent.com/hbenbel/French-D
 WORDS_LENGTH = list(map(lambda n: int(n), input('Enter the length of each word separate by a space: ').split(' ')))
 
 def try_possibilities():
-    words_dict = {n:[] for n in WORDS_LENGTH}
+    words_dict = {n:[] for n in set(WORDS_LENGTH)}
 
     for word in DICTIONARY:
         try: words_dict[len(word)].append(word)
