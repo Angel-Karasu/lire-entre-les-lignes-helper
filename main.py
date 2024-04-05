@@ -42,4 +42,9 @@ def try_possibilities():
 
     return possibilities
 
-print(try_possibilities())
+def export_possibilities(possibilities, file='possibilities.txt'):
+    with open(file, 'w+', encoding='utf-8') as f: f.write('\n'.join(possibilities))
+
+export_possibilities(try_possibilities())
+
+print('Done !')
