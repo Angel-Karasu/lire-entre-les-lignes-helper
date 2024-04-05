@@ -37,7 +37,7 @@ def try_possibilities():
 
     possibilities = list(words_dict.values())[0]
 
-    for n in WORDS_LENGTH[1:]:
+    for n in list(WORDS_LENGTH)[1:]:
         possibilities = [string + ' ' + word for string, word in product(possibilities, words_dict[n]) if check_string(string + word)]
 
     return possibilities
