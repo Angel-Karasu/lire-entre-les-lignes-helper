@@ -8,7 +8,7 @@ def init_dictionary(url:str) -> list[str]:
         word = ''.join(c for c in unicodedata.normalize('NFD', word) if unicodedata.category(c) != 'Mn')
         if set(word).issubset(list(LETTERS)): dictionary.append(word)
 
-    return dictionary
+    return list(set(dictionary))
 
 def init_letters() -> dict[chr:int]:
     letters = {chr(i):0 for i in range(97, 123)}|{'-':0, "'":0}
@@ -16,7 +16,7 @@ def init_letters() -> dict[chr:int]:
     while True:
         try:
             print(letters)
-            l, n = input('Enter letter `l` and number `n` (l n) or anything to pass: ').split(' ')
+            l, n = input('Enter letter `l` and number `n` (ln) or anything to pass: ').split('')
             letters[l] = int(n)
         except: break
 
