@@ -1,6 +1,6 @@
 # Lire entre les lignes helper
 
-This is a simple project to help for [Lire entre les lignes](https://apps.apple.com/fr/app/lire-entre-les-lignes/id1252269368).
+This is a simple project to help for [Lire entre les lignes](https://apps.apple.com/fr/app/lire-entre-les-lignes/id1252269368) game.
     
 ## Installation
 
