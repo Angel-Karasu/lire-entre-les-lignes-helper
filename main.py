@@ -16,7 +16,7 @@ def init_letters() -> dict[chr:int]:
     while True:
         try:
             print(letters)
-            l, n = input('Enter letter `l` and number `n` (ln) or anything to pass: ').split('')
+            l, n = input('Enter letter `l` and number `n` (ln) or anything to pass: ')
             letters[l] = int(n)
         except: break
 
