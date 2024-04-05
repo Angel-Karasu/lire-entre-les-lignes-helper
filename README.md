@@ -20,7 +20,7 @@ python ./main.py;
 
 ## To do
 
-- [ ] Converting the code to C to be faster
+- [ ] Converting the code in another language to be faster
   
 ## License
 
