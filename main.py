@@ -26,7 +26,7 @@ def init_letters() -> dict[chr:int]:
 
 LETTERS = init_letters()
 DICTIONARY = init_dictionary('https://raw.githubusercontent.com/hbenbel/French-Dictionary/master/dictionary/dictionary.csv')
-WORDS_LENGTH = map(lambda n: int(n), input('Enter the length of each word separate by a space: ').split(' '))
+WORDS_LENGTH = list(map(lambda n: int(n), input('Enter the length of each word separate by a space: ').split(' ')))
 
 def try_possibilities():
     words_dict = {n:[] for n in WORDS_LENGTH}
@@ -37,7 +37,7 @@ def try_possibilities():
 
     possibilities = list(words_dict.values())[0]
 
-    for n in list(WORDS_LENGTH)[1:]:
+    for n in WORDS_LENGTH[1:]:
         possibilities = [string + ' ' + word for string, word in product(possibilities, words_dict[n]) if check_string(string + word)]
 
     return possibilities
