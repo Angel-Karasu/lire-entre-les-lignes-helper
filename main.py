@@ -1,12 +1,14 @@
 import requests, unicodedata
 from itertools import product
 
+def check_string(string): return all([string.count(c) <= LETTERS[c] for c in set(string.replace(' ', ''))])
+
 def init_dictionary(url:str) -> list[str]:
     dictionary = []
     
     for word in requests.get(url).text.split('\n'):
         word = ''.join(c for c in unicodedata.normalize('NFD', word) if unicodedata.category(c) != 'Mn')
-        if set(word).issubset(list(LETTERS)): dictionary.append(word)
+        if set(word).issubset(LETTERS.keys()) and check_string(word): dictionary.append(word)
 
     return list(set(dictionary))
 
@@ -27,13 +29,16 @@ DICTIONARY = init_dictionary('https://raw.githubusercontent.com/hbenbel/French-D
 WORDS_LENGTH = map(lambda n: int(n), input('Enter the length of each word separate by a space: ').split(' '))
 
 def try_possibilities():
-    def check_string(string): return all([string.count(c) <= LETTERS[c] for c in LETTERS])
-    def find_word_by_length(length:int): return [word for word in DICTIONARY if len(word) == length]
+    words_dict = {n:[] for n in WORDS_LENGTH}
+
+    for word in DICTIONARY:
+        try: words_dict[len(word)].append(word)
+        except: pass
 
     possibilities = ['']
 
-    for n in WORDS_LENGTH:
-        possibilities = [string + ' ' + word for string, word in product(possibilities, find_word_by_length(n)) if check_string(string + ' ' + word)]
+    for words in words_dict.values():
+        possibilities = [string + ' ' + word for string, word in product(possibilities, words) if check_string(string + word)]
 
     return possibilities
 
