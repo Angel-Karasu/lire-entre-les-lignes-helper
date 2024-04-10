@@ -13,7 +13,7 @@ pip install -r requirements.txt;
 
 ## How to Use
 
-1. Run the python file : `python ./main.py`
+1. Run the python file : `main.py`
 2. Enter the letters available
 3. Enter the length of each word
 
