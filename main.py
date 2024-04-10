@@ -1,3 +1,4 @@
+#!/bin/python
 import requests, unicodedata
 from itertools import product
 
