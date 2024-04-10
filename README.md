@@ -11,7 +11,7 @@ cd lire-entre-les-lignes-helper;
 pip install -r requirements.txt;
 ```
 
-## How to Use
+## How to use
 
 1. Run the python file : `main.py`
 2. Enter the letters available
