@@ -4,17 +4,16 @@ This is a simple project to help for [Lire entre les lignes](https://apps.apple.
     
 ## Installation
 
-If you want to use, clone this repository, install all requirements packages and run it using python command
+Clone this repository and install all requirements packages
 ```shell
 git clone https://github.com/Angel-Karasu/lire-entre-les-lignes-helper.git;
 cd lire-entre-les-lignes-helper;
 pip install -r requirements.txt;
-python ./main.py;
 ```
 
 ## How to Use
 
-1. Run the python file : `main.py`
+1. Run the python file : `python ./main.py`
 2. Enter the letters available
 3. Enter the length of each word
 
