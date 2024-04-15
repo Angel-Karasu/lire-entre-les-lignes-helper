@@ -21,6 +21,7 @@ async function generate_possibilities(words_length = [], letters = {}) {
         words.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, '').split('\n').forEach(word => {
             if (words_length.includes(word.length) && check_string(word)) dictionary_by_length[word.length].push(word);
         });
+        Object.keys(dictionary_by_length).forEach(length => dictionary_by_length[length] = [...new Set(dictionary_by_length[length])])
     
         possibilities = dictionary_by_length[words_length[0]];
         for (let length of words_length.slice(1)) {
