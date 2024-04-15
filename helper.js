@@ -5,14 +5,6 @@ const available_letters = (() => {
     for (let i=0; i<26; i++) letters[String.fromCharCode(97+i)] = 0;
     return letters
 })();
-available_letters['f'] = 1;
-available_letters['a'] = 1;
-available_letters['u'] = 1;
-available_letters['s'] = 2;
-available_letters['e'] = 2;
-available_letters['n'] = 1;
-available_letters['o'] = 1;
-available_letters['t'] = 1;
 
 async function generate_possibilities(words_length = [], letters = {}) {
     const check_string = string => [...new Set(string)].every(c => string.split(c).length -1 <= letters[c]);
