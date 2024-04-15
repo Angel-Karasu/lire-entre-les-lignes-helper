@@ -16,6 +16,10 @@ function add_letters() {
     letter_html.remove();
 }
 
+function reload_letters() {
+    for (let letter of document.querySelectorAll('.letter input')) letter.value = 0;
+}
+
 function update_word_number(n) {
     let words = document.querySelectorAll('.word');
 
@@ -65,6 +69,7 @@ window.onload = () => {
     words_html = document.querySelector('#words');
 
     document.querySelector('#add-word').onclick = add_word;
+    document.querySelector('#reload-button').onclick = reload_letters;
     document.querySelector('#show-possibilities-button').onclick = show_possibilities;
 
     add_letters();
