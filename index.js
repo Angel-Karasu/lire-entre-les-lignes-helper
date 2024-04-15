@@ -9,7 +9,6 @@ function add_letters() {
     Object.keys(available_letters).forEach(letter => {
         let let_html = letter_html.cloneNode(true);
         let_html.querySelector('span').textContent = letter;
-        let_html.querySelector('input').value = available_letters[letter];
         letters_html.appendChild(let_html);
     });
 
