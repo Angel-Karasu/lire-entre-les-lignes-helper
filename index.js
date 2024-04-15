@@ -16,8 +16,8 @@ function add_letters() {
     letter_html.remove();
 }
 
-function reload_letters() {
-    for (let letter of document.querySelectorAll('.letter input')) letter.value = 0;
+function remove_letters_value() {
+    for (let letter of document.querySelectorAll('.letter input')) letter.value = '';
 }
 
 function update_word_number(n) {
@@ -29,12 +29,12 @@ function update_word_number(n) {
         input.placeholder = `Word ${n+i} length`;
     });
 
-    words[1].querySelector('.remove-button').style.visibility = words.length < 3 ? 'hidden':'';
+    words[1].querySelector('.remove-word-button').style.visibility = words.length < 3 ? 'hidden':'';
 }
 
 function add_word() {
     let word = word_html.cloneNode(true);
-    word.querySelector('.remove-button').onclick = () => remove_word(word);
+    word.querySelector('.remove-word-button').onclick = () => remove_word(word);
     words_html.appendChild(word);
     update_word_number(document.querySelectorAll('.word').length - 1)
 }
@@ -47,7 +47,7 @@ function remove_word(word) {
 
 function show_possibilities() {
     let letters = {};
-    for (let letter of document.querySelectorAll('.letter')) letters[letter.querySelector('span').textContent] = letter.querySelector('input').value;
+    for (let letter of document.querySelectorAll('.letter')) letters[letter.querySelector('span').textContent] = +letter.querySelector('input').value;
     generate_possibilities(
         Array.from(document.querySelectorAll('.word')).slice(1).map(word => +word.querySelector('input').value),
         letters
@@ -69,7 +69,7 @@ window.onload = () => {
     words_html = document.querySelector('#words');
 
     document.querySelector('#add-word').onclick = add_word;
-    document.querySelector('#reload-button').onclick = reload_letters;
+    document.querySelector('#remove-letters-value-button').onclick = remove_letters_value;
     document.querySelector('#show-possibilities-button').onclick = show_possibilities;
 
     add_letters();

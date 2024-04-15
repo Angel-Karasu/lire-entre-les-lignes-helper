@@ -68,13 +68,13 @@ button {
   border: solid 1px;
 }
 
-.remove-button {
+.remove-word-button {
   position: absolute;
   margin-left: 5px;
   border-color: var(--red_alt);
   color: var(--red_alt);
 }
-.remove-button:hover {
+.remove-word-button:hover {
   background-color: var(--red_alt);
   color: var(--black);
 }
@@ -84,6 +84,9 @@ button {
 .letter input {
   width: 20px;
   height: 20px;
+}
+.letter:has(input:not(:placeholder-shown)) span, .letter input:not(:placeholder-shown) {
+  color: var(--blue_alt);
 }
 
 #letters {
@@ -102,12 +105,12 @@ button {
   color: var(--black);
 }
 
-#reload-button {
+#remove-letters-value-button {
   width: 100%;
   color: var(--yellow);
   border: solid var(--yellow) 1px;
 }
-#reload-button:hover {
+#remove-letters-value-button:hover {
   background-color: var(--yellow);
   color: var(--black);
 }
@@ -136,6 +139,6 @@ button {
 #possibilities span {
   margin: 5px 2px;
   padding: 2px 5px;
-  border: solid 1px var(--blue_alt);
+  border: solid 1px var(--magenta_alt);
   border-radius: 10px;
 }
