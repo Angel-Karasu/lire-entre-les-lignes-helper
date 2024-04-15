@@ -6,6 +6,9 @@ const available_letters = (() => {
     return letters
 })();
 
+const dictionary = fetch('https://raw.githubusercontent.com/hbenbel/French-Dictionary/master/dictionary/dictionary.csv').then(
+    res => res.text()).then(dict => [...new Set(dict.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, '').split('\n'))]);
+
 async function generate_possibilities(words_length = [], letters = {}) {
     const check_string = string => [...new Set(string)].every(c => string.split(c).length -1 <= letters[c]);
 
@@ -17,20 +20,19 @@ async function generate_possibilities(words_length = [], letters = {}) {
     
     let possibilities = [];
 
-    await fetch('https://raw.githubusercontent.com/hbenbel/French-Dictionary/master/dictionary/dictionary.csv').then(res => res.text()).then(words => {
-        words.normalize("NFD").replaceAll(/[\u0300-\u036f]/g, '').split('\n').forEach(word => {
+    await dictionary.then(words => {
+        words.forEach(word => {
             if (words_length.includes(word.length) && check_string(word)) dictionary_by_length[word.length].push(word);
         });
-        Object.keys(dictionary_by_length).forEach(length => dictionary_by_length[length] = [...new Set(dictionary_by_length[length])])
     
         possibilities = dictionary_by_length[words_length[0]];
-        for (let length of words_length.slice(1)) {
+        words_length.slice(1).forEach(length => {
             let tmp = [];
             possibilities.forEach(string => dictionary_by_length[length].forEach(word => {
                 if (check_string(string.replaceAll(' ', '') + word)) tmp.push(string + ' ' + word)
             }));
             possibilities = tmp;
-        }
+        });
     });
 
     return possibilities;
