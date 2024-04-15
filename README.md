@@ -1,24 +1,18 @@
 # Lire entre les lignes helper
 
 This is a simple project to help for [Lire entre les lignes](https://apps.apple.com/fr/app/lire-entre-les-lignes/id1252269368) game.
-    
-## Installation
-
-Clone this repository and install all requirements packages
-```shell
-git clone https://github.com/Angel-Karasu/lire-entre-les-lignes-helper.git;
-cd lire-entre-les-lignes-helper;
-pip install -r requirements.txt;
-```
 
 ## How to use
 
-1. Run the python file : `main.py`
-2. Enter the letters available
-3. Enter the length of each word
+To use this helper, simply go on the [lire entre les lignes helper](https://angel-karasu.github.io/lire-entre-les-lignes-helper/) website and complete the length of each words and the number of letters you have.
+
+See the `helper.js` file or read [how it works](#how-it-works) section if you want to understand how the helper works.
+
+## How it works
 
 ## To do
 
+- [ ] Complete how it works
 - [ ] Optimize the code
   
 ## License

@@ -1,3 +1,0 @@
-itertools
-requests
-unicodedata
