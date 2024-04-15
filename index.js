@@ -1,6 +1,6 @@
 import {available_letters, generate_possibilities} from "./helper.js";
 
-let word_html, words_html;
+let possibilities_html, word_html, words_html;
 
 function add_letters() {
     const letters_html = document.querySelector('#letters');
@@ -47,11 +47,17 @@ function show_possibilities() {
     generate_possibilities(
         Array.from(document.querySelectorAll('.word')).slice(1).map(word => +word.querySelector('input').value),
         letters
-    ).then(possibility => console.log(possibility));
-    alert('Go in console to see the result');
+    ).then(possibilities => {
+        possibilities.forEach(possibility => {
+            let span = document.createElement('span');
+            span.innerHTML = possibility;
+            possibilities_html.appendChild(span);
+        });
+    });
 }
 
 window.onload = () => {
+    possibilities_html = document.querySelector('#possibilities');
     word_html = document.querySelector('.word').cloneNode(true);
     word_html.style.display = '';
     words_html = document.querySelector('#words');

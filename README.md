@@ -12,7 +12,6 @@ See the `helper.js` file or read [how it works](#how-it-works) section if you wa
 
 ## To do
 
-- [ ] Show the possibilities on the page 
 - [ ] Complete how it works
 - [ ] Make a better filter of possibilities
   

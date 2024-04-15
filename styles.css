@@ -115,3 +115,16 @@ button {
   background-color: var(--green);
   color: var(--black);
 }
+
+#possibilities {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#possibilities span {
+  margin: 5px 2px;
+  padding: 2px 5px;
+  border: solid 1px var(--blue_alt);
+  border-radius: 10px;
+}
