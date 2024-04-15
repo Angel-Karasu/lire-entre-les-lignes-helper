@@ -48,6 +48,8 @@ function show_possibilities() {
         Array.from(document.querySelectorAll('.word')).slice(1).map(word => +word.querySelector('input').value),
         letters
     ).then(possibilities => {
+        console.log(possibilities);
+        possibilities_html.innerHTML = '';
         possibilities.forEach(possibility => {
             let span = document.createElement('span');
             span.innerHTML = possibility;
