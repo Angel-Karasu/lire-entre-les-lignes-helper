@@ -4,7 +4,7 @@ This is a simple project to help for [Lire entre les lignes](https://apps.apple.
 
 ## How to use
 
-To use this helper, simply go on the [lire entre les lignes helper](https://angel-karasu.github.io/lire-entre-les-lignes-helper/) website and complete the length of each words and the number of letters you have.
+To use this helper, simply go on the [lire entre les lignes helper](https://angel-karasu.codeberg.page/lire-entre-les-lignes-helper/) website and complete the length of each words and the number of letters you have.
 
 See the `helper.js` file or read [how it works](#how-it-works) section if you want to understand how the helper works.
 
